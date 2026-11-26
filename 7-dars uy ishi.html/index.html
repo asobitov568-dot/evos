@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVOS - Online Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">EVOS</div>
+    <nav>
+        <a href="#">Bosh sahifa</a>
+        <a href="#menu">Menyu</a>
+        <a href="#">Biz haqimizda</a>
+    </nav>
+    <button class="search-toggle" id="searchToggle" type="button" aria-label="Qidiruvni ochish" aria-expanded="false"><span aria-hidden="true">⌕</span></button>
+    <form class="search-form" id="searchForm" role="search" hidden>
+        <input id="searchInput" type="search" placeholder="Taom nomini yozing..." aria-label="Taom qidirish">
+    </form>
+    <button class="receipts-button" id="receiptsButton" type="button">🧾 Cheklar</button>
+    <button class="qr-button" id="qrScannerButton" type="button">📷 QR skaner</button>
+    <button class="admin-button" id="adminButton" type="button">🔐 Admin</button>
+    <button class="cart" id="cartButton" type="button" aria-expanded="false">🛒 Savat <span class="cart-count" id="cartCount" aria-live="polite" hidden>0</span></button>
+</header>
+
+<section class="hero">
+    <h1>EVOS MENYUSI</h1>
+    <p>Sevimli taomingizni tanlang!</p>
+</section>
+
+<div class="menu-layout">
+<aside class="category-platform" aria-label="Menyu kategoriyalari">
+    <button class="category-card active" type="button" data-category="all">
+        <span class="category-icon">🍽️</span>
+        <strong>Barcha taomlar</strong>
+    </button>
+    <button class="category-card category-chizz" type="button" data-category="chizz">
+        <span class="category-icon">🍔</span>
+        <strong>Chizi Chizz</strong>
+    </button>
+    <button class="category-card category-actions" type="button" data-category="actions">
+        <span class="category-icon">%</span>
+        <strong>Aktsiya</strong>
+    </button>
+    <button class="category-card category-new" type="button" data-category="new">
+        <span class="category-icon">New!</span>
+        <strong>Novinki</strong>
+    </button>
+    <button class="category-card" type="button" data-category="lavash">
+        <span class="category-icon">🌯</span>
+        <strong>Lavash</strong>
+    </button>
+    <button class="category-card" type="button" data-category="shawarma">
+        <span class="category-icon">🌯</span>
+        <strong>Shawurma</strong>
+    </button>
+    <button class="category-card" type="button" data-category="tandyr">
+        <span class="category-icon">🫓</span>
+        <strong>Trindvich va Rolls</strong>
+    </button>
+    <button class="category-card" type="button" data-category="donar">
+        <span class="category-icon">🌮</span>
+        <strong>Donar</strong>
+    </button>
+    <button class="category-card" type="button" data-category="donuts">
+        <span class="category-icon">🍩</span>
+        <strong>Donatlar</strong>
+    </button>
+    <button class="category-card" type="button" data-category="hotdog">
+        <span class="category-icon">🌭</span>
+        <strong>Hot-Dog</strong>
+    </button>
+    <button class="category-card" type="button" data-category="potato">
+        <span class="category-icon">🍟</span>
+        <strong>Kartoshka</strong>
+    </button>
+    <button class="category-card" type="button" data-category="sandwich">
+        <span class="category-icon">🥪</span>
+        <strong>Sneki</strong>
+    </button>
+    <button class="category-card" type="button" data-category="drink">
+        <span class="category-icon">🥤</span>
+        <strong>Ichimliklar</strong>
+    </button>
+    <button class="category-card" type="button" data-category="combo">
+        <span class="category-icon">🍱</span>
+        <strong>Kombo</strong>
+    </button>
+</aside>
+
+<section class="products" id="menu">
+    <p class="no-results" id="noResults" hidden>Bu nomdagi taom topilmadi.</p>
+
+    <div class="product-card" data-category="chizz new actions">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" alt="Burger">
+        <h3>Gamburger</h3>
+        <p>25 000 so'm</p>
+        <button onclick="openModal('Gamburger',25000,'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600','Mazali va yangi gamburger')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="tandyr new">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600" alt="Pizza">
+        <h3>Pizza</h3>
+        <p>32 000 so'm</p>
+        <button onclick="openModal('Pizza',32000,'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600','Mazali pishloqli pizza')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="chizz actions">
+        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600" alt="Cheeseburger">
+        <h3>Cheeseburger</h3>
+        <p>30 000 so'm</p>
+        <button onclick="openModal('Cheeseburger',30000,'https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600','Pishloqli mazali burger')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="lavash">
+        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600" alt="Lavash">
+        <h3>Lavash</h3>
+        <p>32 000 so'm</p>
+        <button onclick="openModal('Lavash',32000,'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600','Yumshoq non va mazali masalliqlardan tayyorlangan lavash')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="potato actions">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600" alt="Fri kartoshka">
+        <h3>Fri kartoshka</h3>
+        <p>18 000 so'm</p>
+        <button onclick="openModal('Fri kartoshka',18000,'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600','Qarsildoq va issiq fri kartoshka')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="shawarma donar">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600" alt="Donar">
+        <h3>Donar</h3>
+        <p>38 000 so'm</p>
+        <button onclick="openModal('Donar',38000,'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600','Yangi sabzavotlar bilan tayyorlangan mazali donar')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="tandyr">
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600" alt="Spagetti">
+        <h3>Spagetti</h3>
+        <p>35 000 so'm</p>
+        <button onclick="openModal('Spagetti',35000,'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600','Mazali sous bilan pishirilgan spagetti')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="hotdog">
+        <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=600" alt="Hot-dog">
+        <h3>Hot-dog</h3>
+        <p>22 000 so'm</p>
+        <button onclick="openModal('Hot-dog',22000,'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=600','Sosiska va mazali sous bilan hot-dog')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600" alt="Tovuq naggets">
+        <h3>Tovuq naggets</h3>
+        <p>28 000 so'm</p>
+        <button onclick="openModal('Tovuq naggets',28000,'https://images.unsplash.com/photo-1562967914-608f82629710?w=600','Qarsildoq tovuq naggets va sous')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600" alt="Tovuq qanotlari">
+        <h3>Tovuq qanotlari</h3>
+        <p>35 000 so'm</p>
+        <button onclick="openModal('Tovuq qanotlari',35000,'https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600','Achchiq sous bilan pishirilgan tovuq qanotlari')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600" alt="Sabzavotli salat">
+        <h3>Sabzavotli salat</h3>
+        <p>24 000 so'm</p>
+        <button onclick="openModal('Sabzavotli salat',24000,'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600','Yangi sabzavotlardan tayyorlangan yengil salat')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="drink">
+        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600" alt="Sutli kokteyl">
+        <h3>Sutli kokteyl</h3>
+        <p>20 000 so'm</p>
+        <button onclick="openModal('Sutli kokteyl',20000,'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600','Sovuq va mazali sutli kokteyl')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600" alt="Shashlik">
+        <h3>Shashlik</h3>
+        <p>38 000 so'm</p>
+        <button onclick="openModal('Shashlik',38000,'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600','Ko'mirda pishirilgan mazali shashlik')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="donuts new">
+        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=600" alt="Pankeyk">
+        <h3>Pankeyk</h3>
+        <p>28 000 so'm</p>
+        <button onclick="openModal('Pankeyk',28000,'https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=600','Shirin sirop bilan yumshoq pankeyk')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="donuts">
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600" alt="Tiramisu">
+        <h3>Tiramisu</h3>
+        <p>30 000 so'm</p>
+        <button onclick="openModal('Tiramisu',30000,'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600','Yumshoq kremli italyan deserti')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600" alt="Palov">
+        <h3>Palov</h3>
+        <p>36 000 so'm</p>
+        <button onclick="openModal('Palov',36000,'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600','Guruch va sabzavotlardan tayyorlangan palov')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600" alt="Mastava">
+        <h3>Mastava</h3>
+        <p>27 000 so'm</p>
+        <button onclick="openModal('Mastava',27000,'https://images.unsplash.com/photo-1547592180-85f173990554?w=600','Issiq va mazali mastava sho'rva')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600" alt="Tuxumli tost">
+        <h3>Tuxumli tost</h3>
+        <p>24 000 so'm</p>
+        <button onclick="openModal('Tuxumli tost',24000,'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600','Non va tuxumdan tayyorlangan issiq tost')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600" alt="Donut">
+        <h3>Donut</h3>
+        <p>15 000 so'm</p>
+        <button onclick="openModal('Donut',15000,'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600','Shirin va yumshoq donut')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="sandwich">
+        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600" alt="Tovuqli sendvich">
+        <h3>Tovuqli sendvich</h3>
+        <p>27 000 so'm</p>
+        <button onclick="openModal('Tovuqli sendvich',27000,'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600','Tovuq va yangi sabzavotli sendvich')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="lavash">
+        <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600" alt="Klassik lavash">
+        <h3>Klassik lavash</h3>
+        <p>34 000 so'm</p>
+        <button onclick="openModal('Klassik lavash',34000,'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600','Tovuq go‘shti, sabzavotlar va sous bilan klassik lavash')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="lavash">
+        <img src="https://images.unsplash.com/photo-1534352956036-cd81e27dd615?w=600" alt="Sirli lavash">
+        <h3>Sirli lavash</h3>
+        <p>36 000 so'm</p>
+        <button onclick="openModal('Sirli lavash',36000,'https://images.unsplash.com/photo-1534352956036-cd81e27dd615?w=600','Pishloqli sous va mol go‘shti bilan sirli lavash')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="hotdog">
+        <img src="https://images.unsplash.com/photo-1612392062126-2a8e56cc1d7b?w=600" alt="Klassik hot-dog">
+        <h3>Klassik hot-dog</h3>
+        <p>22 000 so'm</p>
+        <button onclick="openModal('Klassik hot-dog',22000,'https://images.unsplash.com/photo-1612392062126-2a8e56cc1d7b?w=600','Sosiska, ketchup va xantal bilan klassik hot-dog')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="hotdog">
+        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600" alt="Maxsus hot-dog">
+        <h3>Maxsus hot-dog</h3>
+        <p>26 000 so'm</p>
+        <button onclick="openModal('Maxsus hot-dog',26000,'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600','Pishloq, sosiska va maxsus sousli hot-dog')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="sandwich">
+        <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=600" alt="Tost sendvich">
+        <h3>Tost sendvich</h3>
+        <p>25 000 so'm</p>
+        <button onclick="openModal('Tost sendvich',25000,'https://images.unsplash.com/photo-1553909489-cd47e0907980?w=600','Pishloq, tovuq va sabzavotli tosti sendvich')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="sandwich">
+        <img src="https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=600" alt="Clab sendvich">
+        <h3>Clab sendvich</h3>
+        <p>29 000 so'm</p>
+        <button onclick="openModal('Clab sendvich',29000,'https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=600','Tovuqli, pishloqli va sabzavotli ko‘p qavatli sendvich')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="drink">
+        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600" alt="Muzli cola">
+        <h3>Muzli cola</h3>
+        <p>12 000 so'm</p>
+        <button onclick="openModal('Muzli cola',12000,'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600','Sovuq va gazli ichimlik')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="drink">
+        <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600" alt="Apelsin sharbati">
+        <h3>Apelsin sharbati</h3>
+        <p>15 000 so'm</p>
+        <button onclick="openModal('Apelsin sharbati',15000,'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600','Tabiiy apelsin sharbatidan tayyorlangan sovuq ichimlik')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="drink">
+        <img src="https://images.unsplash.com/photo-1499638309848-1877f6ef3d2b?w=600" alt="Chortoq suv">
+        <h3>Chortoq suv</h3>
+        <p>12 000 so'm</p>
+        <button onclick="openModal('Chortoq suv',12000,'https://images.unsplash.com/photo-1499638309848-1877f6ef3d2b?w=600','Sovuq mineral suv')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="combo actions">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" alt="Burger kombo">
+        <h3>Burger kombo</h3>
+        <p>38 000 so'm</p>
+        <button onclick="openModal('Burger kombo',38000,'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600','Burger, kartoshka va ichimlikdan iborat kombo')">
+            Batafsil
+        </button>
+    </div>
+
+    <div class="product-card" data-category="combo new">
+        <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600" alt="Lavash kombo">
+        <h3>Lavash kombo</h3>
+        <p>40 000 so'm</p>
+        <button onclick="openModal('Lavash kombo',40000,'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600','Lavash, kartoshka va sovuq ichimlikdan iborat kombo')">
+            Batafsil
+        </button>
+    </div>
+
+</section>
+</div>
+
+<!-- MODAL OYNA -->
+
+<div class="modal" id="productModal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" id="closeModalBtn"></button>
+
+        <img id="modalImg" src="" alt="Mahsulot">
+
+        <h2 id="modalTitle">Mahsulot nomi</h2>
+
+        <p id="modalDesc"></p>
+
+        <h3>O'lchamni tanlang</h3>
+
+        <div class="sizes">
+            <button class="size-btn" data-size="Kichik">Kichik</button>
+            <button class="size-btn" data-size="O'rta">O'rta</button>
+            <button class="size-btn" data-size="Katta">Katta</button>
+        </div>
+
+        <h3>Qo'shimchalar</h3>
+
+        <div class="addons">
+            <label>
+                <input type="checkbox" class="addon-checkbox" value="5000">
+                Pishloq (+5 000)
+            </label>
+
+            <label>
+                <input type="checkbox" class="addon-checkbox" value="7000">
+                Go'sht (+7 000)
+            </label>
+
+            <label>
+                <input type="checkbox" class="addon-checkbox" value="3000">
+                Sous (+3 000)
+            </label>
+        </div>
+
+        <h3>Miqdori</h3>
+
+        <div class="quantity">
+            <button id="decreaseQty">-</button>
+            <span id="qtyValue">1</span>
+            <button id="increaseQty">+</button>
+        </div>
+
+        <h2 id="totalPrice">0 so'm</h2>
+
+        <button class="add-cart" id="addToCartBtn">
+            Savatga qo'shish
+        </button>
+
+    </div>
+
+</div>
+
+<div class="modal" id="cartModal">
+    <div class="modal-content cart-modal-content">
+        <button class="close-btn" id="closeCartModalBtn" type="button" aria-label="Savatni yopish">×</button>
+        <h2>Savatingiz</h2>
+        <div id="cartSummary">
+            <p class="empty-cart-message" id="emptyCartMessage">Savat hozircha bo'sh.</p>
+            <div class="cart-items" id="cartItems"></div>
+            <p class="cart-subtotal" id="cartSubtotal" hidden></p>
+            <p class="promo-discount" id="promoDiscount" hidden></p>
+            <h2 class="cart-total" id="cartTotal" hidden></h2>
+            <div class="promo-code">
+                <p>Promo kod: <strong>evos77</strong> — 10% chegirma</p>
+                <label for="promoCodeInput">Promo kodni kiriting</label>
+                <div class="promo-code-entry">
+                    <input id="promoCodeInput" type="text" autocomplete="off" placeholder="Masalan, evos77">
+                    <button class="checkout-button" id="applyPromoButton" type="button">Qo'llash</button>
+                </div>
+                <p class="promo-message" id="promoMessage" role="status"></p>
+            </div>
+            <button class="checkout-button" id="checkoutButton" type="button" hidden>Buyurtma berish</button>
+        </div>
+        <form class="checkout-form" id="deliveryForm" hidden>
+            <h3>Yetkazib berish ma'lumotlari</h3>
+            <label>
+                Ism va familiya
+                <input id="customerName" type="text" autocomplete="name" placeholder="Masalan, Azizbek Karimov" required>
+            </label>
+            <label>
+                Telefon raqami
+                <input id="phoneNumber" type="tel" autocomplete="tel" placeholder="+998 90 123 45 67" required>
+            </label>
+            <label>
+                Yashash manzili
+                <textarea id="deliveryAddress" autocomplete="street-address" placeholder="Viloyat, shahar, ko'cha, uy" required></textarea>
+            </label>
+            <button class="checkout-button" type="submit">Tasdiqlash kodi olish</button>
+            <button class="checkout-back-button" id="backToCartBtn" type="button">Savatga qaytish</button>
+        </form>
+        <form class="checkout-form" id="verificationForm" hidden>
+            <p id="verificationNotice" role="status"></p>
+            <label>
+                Tasdiqlash kodi
+                <input id="verificationCodeInput" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="6 xonali kod" required>
+            </label>
+            <p class="verification-error" id="verificationError" role="alert" hidden></p>
+            <button class="checkout-button" type="submit">Buyurtmani tasdiqlash</button>
+            <button class="checkout-back-button" id="backToDeliveryBtn" type="button">Orqaga</button>
+        </form>
+        <div class="order-success" id="orderSuccess" role="status" hidden>
+            <p>Buyurtmangiz qabul qilindi! (Demo)</p>
+            <div class="receipt-card" id="latestReceipt"></div>
+        </div>
+        <p class="order-error" id="orderError" role="alert" hidden></p>
+    </div>
+</div>
+
+<div class="modal" id="receiptsModal">
+    <div class="modal-content receipts-modal-content">
+        <button class="close-btn" id="closeReceiptsModalBtn" type="button" aria-label="Cheklar oynasini yopish">×</button>
+        <h2>Cheklarim</h2>
+        <p class="empty-receipts-message" id="emptyReceiptsMessage">Hozircha chek yo'q.</p>
+        <p class="receipt-storage-error" id="receiptStorageError" hidden>Cheklar brauzer xotirasidan o'qilmadi. Brauzer sozlamalarini tekshiring.</p>
+        <div class="receipt-list" id="receiptList"></div>
+    </div>
+</div>
+
+<div class="modal" id="qrScannerModal">
+    <div class="modal-content qr-scanner-modal-content">
+        <button class="close-btn" id="closeQrScannerModalBtn" type="button" aria-label="QR skanerini yopish">×</button>
+        <h2>Promo QR skaner</h2>
+        <video id="qrVideo" autoplay muted playsinline></video>
+        <canvas id="qrCanvas" hidden></canvas>
+        <p class="qr-status" id="qrStatus" role="status">QR kodni kameraga qarating.</p>
+        <label class="qr-upload-label" for="qrImageInput">QR rasmi yuklash</label>
+        <input id="qrImageInput" type="file" accept="image/*">
+        <div class="qr-demo">
+            <p><strong>EVOS77</strong> — 10% chegirma</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;data=EVOS77" alt="EVOS77 promo QR kodi">
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="adminModal">
+    <div class="modal-content admin-modal-content">
+        <button class="close-btn" id="closeAdminModalBtn" type="button" aria-label="Admin oynasini yopish">×</button>
+        <h2>Admin panel</h2>
+        <form class="admin-login" id="adminLoginForm">
+            <p>Panelga kirish uchun ikkala kodni kiriting.</p>
+            <label>
+                1-kod
+                <input id="adminCodeOne" type="password" autocomplete="off" required>
+            </label>
+            <label>
+                2-kod
+                <input id="adminCodeTwo" type="password" autocomplete="off" required>
+            </label>
+            <p class="admin-login-error" id="adminLoginError" role="alert" hidden>Kodlardan biri noto‘g‘ri.</p>
+            <button class="checkout-button" type="submit">Kirish</button>
+        </form>
+        <section class="admin-orders" id="adminOrders" hidden>
+            <div class="admin-orders-heading">
+                <div class="admin-panel-actions">
+                    <p id="adminOrderCount">Buyurtmalar: 0</p>
+                    <button class="checkout-button" id="adminMenuButton" type="button">Saytdagi mahsulotlar</button>
+                    <button class="checkout-back-button" id="adminLogoutBtn" type="button">Chiqish</button>
+                </div>
+            </div>
+            <p class="admin-storage-notice">Bu demo buyurtmalarni faqat shu brauzer xotirasidan ko‘rsatadi.</p>
+            <p class="empty-admin-orders" id="emptyAdminOrders">Hozircha buyurtmalar yo‘q.</p>
+            <div class="admin-order-list" id="adminOrderList"></div>
+        </section>
+    </div>
+</div>
+
+<div class="modal admin-order-details-modal" id="adminOrderDetailsModal">
+    <div class="modal-content admin-order-details-content">
+        <button class="close-btn" id="closeAdminOrderDetailsBtn" type="button" aria-label="Buyurtma tafsilotlarini yopish">×</button>
+        <h2>Buyurtma tafsilotlari</h2>
+        <div class="receipt-card" id="adminOrderDetails"></div>
+    </div>
+</div>
+
+<div class="modal admin-menu-modal" id="adminMenuModal">
+    <div class="modal-content admin-menu-modal-content">
+        <button class="close-btn" id="closeAdminMenuModalBtn" type="button" aria-label="Menyu oynasini yopish">×</button>
+        <h2>Saytdagi mahsulotlar <span id="adminMenuCount"></span></h2>
+        <div class="admin-menu-list" id="adminMenuList"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

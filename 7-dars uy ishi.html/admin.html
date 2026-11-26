@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVOS - Admin panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-page">
+    <main class="admin-page-shell">
+        <header class="admin-page-header">
+            <div>
+                <p class="admin-dashboard-label">Boshqaruv paneli</p>
+                <h1>Statistika</h1>
+            </div>
+            <button class="checkout-back-button" id="closeAdminPageBtn" type="button">Yopish</button>
+        </header>
+
+        <section id="adminPageAccess" hidden>
+            <p>Kirish uchun asosiy sahifadagi admin kodlarini kiriting.</p>
+        </section>
+
+        <section id="adminPageContent">
+            <div class="admin-stat-grid">
+                <article class="admin-stat-card stat-today">
+                    <p>Bugungi buyurtmalar</p>
+                    <strong id="adminTodayCount">0</strong>
+                    <span>Jami bugungi zakazlar</span>
+                </article>
+                <article class="admin-stat-card stat-turnover">
+                    <p>Bugungi tushum</p>
+                    <strong id="adminTodayTotal">0 so'm</strong>
+                    <span>Jami to'lov summasi</span>
+                </article>
+                <article class="admin-stat-card stat-week">
+                    <p>7 kunlik buyurtmalar</p>
+                    <strong id="adminWeekCount">0</strong>
+                    <span>So'nggi haftadagi zakazlar</span>
+                </article>
+                <article class="admin-stat-card stat-product">
+                    <p>Eng ko'p zakaz qilingan</p>
+                    <strong id="adminTopProduct">-</strong>
+                    <span>Bugungi eng ko'p zakaz qilingan</span>
+                </article>
+            </div>
+
+            <div class="admin-dashboard-grid">
+                <article class="admin-chart-card">
+                    <div class="admin-card-heading">
+                        <h2>Haftalik savdo</h2>
+                        <span>So'nggi 7 kun</span>
+                    </div>
+                    <div class="admin-week-chart" id="adminWeekChart"></div>
+                </article>
+                <article class="admin-recent-card">
+                    <div class="admin-card-heading">
+                        <h2>So'nggi buyurtmalar</h2>
+                        <button class="checkout-button" id="adminPageMenuButton" type="button">Mahsulotlar</button>
+                    </div>
+                    <p class="admin-storage-notice">Buyurtmalar shu brauzer xotirasidan ko‘rsatiladi.</p>
+                    <div id="adminRecentList"></div>
+                </article>
+            </div>
+
+            <div class="admin-page-actions">
+                <p id="adminPageOrderCount">Buyurtmalar: 0</p>
+            </div>
+            <p class="empty-admin-orders" id="adminPageEmpty" hidden>Hozircha buyurtmalar yo‘q.</p>
+            <div class="admin-order-list" id="adminPageOrderList"></div>
+        </section>
+    </main>
+
+    <div class="modal admin-order-details-modal" id="adminPageDetailsModal">
+        <div class="modal-content admin-order-details-content">
+            <button class="close-btn" id="closeAdminPageDetailsBtn" type="button" aria-label="Buyurtma tafsilotlarini yopish">×</button>
+            <h2>Buyurtma tafsilotlari</h2>
+            <div class="receipt-card" id="adminPageDetails"></div>
+        </div>
+    </div>
+
+    <div class="modal admin-menu-modal" id="adminPageMenuModal">
+        <div class="modal-content admin-menu-modal-content">
+            <button class="close-btn" id="closeAdminPageMenuBtn" type="button" aria-label="Menyu oynasini yopish">×</button>
+            <h2>Saytdagi mahsulotlar <span id="adminPageMenuCount"></span></h2>
+            <div class="admin-menu-list" id="adminPageMenuList"></div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
